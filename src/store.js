@@ -5,11 +5,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    user: null
+    forms: null
   },
   mutations: {
     SET_STATE(state, data) {
-      state.user = data;
+      state.forms = data;
     }
   },
   actions: {

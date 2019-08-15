@@ -4,18 +4,18 @@
       <h2>Sign Up</h2>
       <el-form class="form">
         <el-form-item prop="name" label="NAME">
-          <el-input v-model="ruleForm.name" placeholder="Your Name"></el-input>
+          <el-input v-model="forms.name" placeholder="Your Name"></el-input>
         </el-form-item>
         <el-form-item prop="email" label="EMAIL">
           <el-input
-            v-model="ruleForm.email"
+            v-model="forms.email"
             placeholder="example@gmail.com"
           ></el-input>
         </el-form-item>
         <el-form-item prop="password" label="PASSWORD">
-          <el-input type="password" v-model="ruleForm.password"></el-input>
+          <el-input type="password" v-model="forms.password"></el-input>
         </el-form-item>
-        <el-button class="button" type="submit" @click="submitForm"
+        <el-button @click="submitForm" class="button" type="submit"
           >Submit</el-button
         >
       </el-form>
@@ -28,7 +28,7 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      ruleForm: {
+      forms: {
         name: "",
         email: "",
         password: ""
@@ -38,7 +38,7 @@ export default {
   methods: {
     ...mapActions(["setInput"]),
     submitForm() {
-      this.setInput(this.ruleForm);
+      this.setInput(this.forms);
     }
   }
 };

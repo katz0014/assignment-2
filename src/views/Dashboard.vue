@@ -1,8 +1,8 @@
 <template>
   <div class="dashboard">
     <div class="dashboard-container">
-      <h3>Welcome {{ ruleForm.name }}!</h3>
-      <p>You signed up with the {{ ruleForm.email }}</p>
+      <h3>Welcome {{ forms.name }}!</h3>
+      <p>You signed up with the {{ forms.email }}</p>
     </div>
   </div>
 </template>
@@ -12,7 +12,7 @@ import { mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["ruleForm"])
+    ...mapState(["forms"])
   }
 };
 </script>
