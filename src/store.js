@@ -5,33 +5,24 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    username: "",
-    email: "",
-    password: ""
+    user: null
   },
   mutations: {
     USER_INFO(state, data) {
-      state.username = data.username;
-      state.email = data.email;
-      state.password = data.password;
+      state.user = data;
+    },
+    SET_STATE(state, data) {
+      state.user = data;
     }
   },
   actions: {
-    updateUser({ commit }, { data }) {
+    updateUser({ commit }, data) {
       // commit the mutation to update the state, sending the payload as {quantity, product }
-      commit("USER_INFO", {
-        username: data.username,
-        email: data.email,
-        password: data.password
-      });
-    }
-  },
-  getters: {
-    getInfo: state => data => {
-      return state.data;
+      commit("USER_INFO", data);
     },
-    getUserIndex: state => data => {
-      return state.data.findIndex(data => data.username);
+    setInput({ commit }, data) {
+      console.log(data);
+      commit("SET_STATE", data);
     }
   }
 });

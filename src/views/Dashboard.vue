@@ -1,35 +1,18 @@
 <template>
   <div class="dashboard">
     <div class="dashboard-container">
-      <h3>Welcome {{ userData.name }}!</h3>
-      <p>You signed up with the email: {{ userData.email }}</p>
-      <p v-for="input in userInput" :key="userInput.id">{{ userInput }}</p>
-      <el-button class="button" type="primary" @click="clearData"
-        >CLEAR YOUR MIND</el-button
-      >
+      <h3>Welcome !</h3>
+      <p>You signed up with the email</p>
     </div>
   </div>
 </template>
+
 <script>
 import { mapState } from "vuex";
-import { mapGetters } from "vuex";
-
-const info = ["name", "email", "password"];
 
 export default {
-  data() {
-    return {
-      userData: {
-        name: "",
-        email: ""
-      },
-      userInput: []
-    };
-  },
-  computed: mapGetters(["getFormName", "getFormEmail"]),
-  created() {
-    this.userData.name = this.getFormName;
-    this.userData.email = this.getFormEmail;
+  computed: {
+    ...mapState(["ruleForm"])
   }
 };
 </script>

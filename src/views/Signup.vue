@@ -2,12 +2,7 @@
   <div class="signUp">
     <div>
       <h2>Sign Up</h2>
-      <el-form
-        class="form"
-        :model="ruleForm"
-        ref="ruleForm"
-        @submit.prevent="submitForm"
-      >
+      <el-form class="form" @submit.prevent="submitForm">
         <el-form-item prop="name" label="NAME">
           <el-input v-model="ruleForm.name" placeholder="Your Name"></el-input>
         </el-form-item>
@@ -20,9 +15,7 @@
         <el-form-item prop="password" label="PASSWORD">
           <el-input type="password" v-model="ruleForm.password"></el-input>
         </el-form-item>
-        <el-button class="button" type="primary" @click="submitForm"
-          >Submit</el-button
-        >
+        <el-button class="button" type="submit">Submit</el-button>
       </el-form>
     </div>
   </div>
@@ -31,21 +24,20 @@
 <script>
 import { mapActions } from "vuex";
 export default {
-  data: function() {
+  data() {
     return {
       ruleForm: {
         name: "",
         email: "",
         password: ""
-      },
-      userInput: {}
+      }
     };
   },
   methods: {
     ...mapActions(["setInput"]),
-    formSubmit() {
-      this.setInput(this.user);
-      this.$router.replace("/Dashboard");
+    submitForm() {
+      console.log(this.ruleForm);
+      this.setInput(this.ruleForm);
     }
   }
 };
