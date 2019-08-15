@@ -1,8 +1,8 @@
 <template>
   <div class="dashboard">
     <div class="dashboard-container">
-      <h3>Welcome !</h3>
-      <p>You signed up with the email</p>
+      <h3>Welcome {{ ruleForm.name }}!</h3>
+      <p>You signed up with the {{ ruleForm.email }}</p>
     </div>
   </div>
 </template>

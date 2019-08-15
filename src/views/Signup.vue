@@ -2,7 +2,7 @@
   <div class="signUp">
     <div>
       <h2>Sign Up</h2>
-      <el-form class="form" @submit.prevent="submitForm">
+      <el-form class="form">
         <el-form-item prop="name" label="NAME">
           <el-input v-model="ruleForm.name" placeholder="Your Name"></el-input>
         </el-form-item>
@@ -15,7 +15,9 @@
         <el-form-item prop="password" label="PASSWORD">
           <el-input type="password" v-model="ruleForm.password"></el-input>
         </el-form-item>
-        <el-button class="button" type="submit">Submit</el-button>
+        <el-button class="button" type="submit" @click="submitForm"
+          >Submit</el-button
+        >
       </el-form>
     </div>
   </div>
@@ -36,7 +38,6 @@ export default {
   methods: {
     ...mapActions(["setInput"]),
     submitForm() {
-      console.log(this.ruleForm);
       this.setInput(this.ruleForm);
     }
   }
